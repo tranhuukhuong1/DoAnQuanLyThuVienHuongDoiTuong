@@ -62,10 +62,30 @@ public class Person implements ThuVien, Serializable {
         do {
             hoTen = new Scanner(System.in).nextLine();
         } while (hoTen.length() == 0);
+        System.out.println("Chọn giới tính:");
+        System.out.println("1. Nam");
+        System.out.println("2. Nữ");
+        System.out.println("3. Khác");
         System.out.print("Nhập giới tính: ");
+        int gt = 0;
         do {
-            gioiTinh = new Scanner(System.in).nextLine();
-        } while (gioiTinh.length() == 0);
+            gt = new Scanner(System.in).nextInt();
+            if (gt != 1 && gt != 2 && gt != 3) {
+                System.out.println("Không hợp lệ! Nhập lại!");
+            }
+        } while (gt != 1 && gt != 2 && gt != 3);
+        gioiTinh = "";
+        switch (gt) {
+            case 1:
+                gioiTinh = "Nam";
+                break;
+            case 2:
+                gioiTinh = "Nữ";
+                break;
+            case 3:
+                gioiTinh = "Khác";
+                break;
+        }
         System.out.print("Nhập năm sinh: ");
         do {
             namSinh = new Scanner(System.in).nextInt();
