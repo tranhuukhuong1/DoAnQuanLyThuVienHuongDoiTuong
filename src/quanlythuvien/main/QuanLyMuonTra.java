@@ -7,12 +7,8 @@ package quanlythuvien.main;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.Duration;
-import java.time.LocalDate;
-import java.time.temporal.ChronoUnit;
 import java.util.Date;
 import java.util.Scanner;
-import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import quanlythuvien.model.CTMuonTra;
@@ -20,6 +16,7 @@ import quanlythuvien.model.DocGia;
 import quanlythuvien.model.KhoSach;
 import quanlythuvien.model.MuonTra;
 import quanlythuvien.model.Sach;
+import quanlythuvien.service.CheckError;
 
 /**
  *
@@ -42,7 +39,7 @@ public class QuanLyMuonTra {
             System.out.println("||   4   ||        Thoát chức năng               ||");
             System.out.println("===================================================");
             System.out.print("Mời chọn chức năng: ");
-            int cp = new Scanner(System.in).nextInt();
+            int cp = CheckError.ChuoiThanhSo();
             switch (cp) {
                 case 1:
                     thucHienMuonSach();
@@ -72,7 +69,7 @@ public class QuanLyMuonTra {
         System.out.print("Chọn STT: ");
         int stt;
         do {
-            stt = new Scanner(System.in).nextInt();
+            stt = CheckError.ChuoiThanhSo();
             if (!contains(stt) || stt < 1) {
                 System.out.println("Không tồn tại! Nhập lại...");
             }
@@ -92,7 +89,7 @@ public class QuanLyMuonTra {
                 System.out.print("Sách có bị thiệt hại không(0/1)? ");
                 int ghiChu;
                 do {
-                    ghiChu = new Scanner(System.in).nextInt();
+                    ghiChu = CheckError.ChuoiThanhSo();
                 } while (ghiChu != 0 && ghiChu != 1);
                 if (ghiChu == 1) {
                     xuLyLoiSach();
@@ -235,14 +232,14 @@ public class QuanLyMuonTra {
         System.out.println("3. Làm rách sách.");
         System.out.println("4. Khác");
         System.out.print("Chọn loại lỗi: ");
-        int cp = new Scanner(System.in).nextInt();
+        int cp = CheckError.ChuoiThanhSo();
         switch (cp) {
             case 1:
                 System.out.println("Yêu cầu mua sách mới trả lại thư viện!");
                 break;
             case 2:
                 System.out.print("Nhập số trang bị bẩn: ");
-                int soTrangBan = new Scanner(System.in).nextInt();
+                int soTrangBan = CheckError.ChuoiThanhSo();
                 if (soTrangBan < 0) {
                     System.out.println("Số trang không hợp lệ!");
                     return;
@@ -251,7 +248,7 @@ public class QuanLyMuonTra {
                 break;
             case 3:
                 System.out.print("Nhập số trang bị rách: ");
-                int soTrangRach = new Scanner(System.in).nextInt();
+                int soTrangRach = CheckError.ChuoiThanhSo();
                 if (soTrangRach < 0) {
                     System.out.println("Số trang không hợp lệ!");
                     return;

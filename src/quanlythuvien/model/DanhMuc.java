@@ -8,6 +8,7 @@ package quanlythuvien.model;
 import java.io.Serializable;
 import java.util.Scanner;
 import quanlythuvien.main.Main;
+import quanlythuvien.service.CheckError;
 import static quanlythuvien.service.ChuanHoaChuoi.chuanHoa;
 
 /**
@@ -51,7 +52,7 @@ public class DanhMuc implements ThuVien, Serializable {
         System.out.println("\tThêm thông tin Danh mục:");
         System.out.print("Nhập mã Danh mục: ");
         do {
-            maDanhMuc = new Scanner(System.in).nextLine();
+            maDanhMuc = CheckError.checkMa("DM-");
             if (Main.dsdm.contains(maDanhMuc) != -1) {
                 System.out.println("Mã bị trùng! Nhập lại...");
             }

@@ -13,6 +13,7 @@ import quanlythuvien.model.DocGia;
 import quanlythuvien.model.DocGiaNguoiLon;
 import quanlythuvien.model.DocGiaTreEm;
 import quanlythuvien.model.MuonTra;
+import quanlythuvien.service.CheckError;
 import quanlythuvien.service.ChuanHoaChuoi;
 
 /**
@@ -151,7 +152,7 @@ public class DanhSachDocGia implements DanhSach {
         System.out.println("\t   SỬA THÔNG TIN ĐỘC GIẢ");
         xuat();
         System.out.print("Nhập mã Độc giả cần sửa: ");
-        String maDocGia = new Scanner(System.in).nextLine();
+        String maDocGia = CheckError.checkMa("DG-");
         int index = contains(maDocGia);
         if (index > -1) {
             nhapThongTin(listDocGia[index]);
@@ -168,7 +169,7 @@ public class DanhSachDocGia implements DanhSach {
         System.out.println("\t   XOÁ THÔNG TIN ĐỘC GIẢ");
         xuat();
         System.out.print("Nhập mã Độc giả cần xoá: ");
-        String maDG = new Scanner(System.in).nextLine();
+        String maDG = CheckError.checkMa("DG-");
         if (contains(maDG) > -1) {
             int pos = contains(maDG);
             for (int i = pos; i <= length - 2; i++) {
@@ -197,14 +198,14 @@ public class DanhSachDocGia implements DanhSach {
     public void timKiem() {
         resetLength();
         System.out.println("============================================");
-        System.out.println("||             TÌM KIẾM SÁCH              ||");
+        System.out.println("||            TÌM KIẾM ĐỘC GIẢ            ||");
         System.out.println("============================================");
         System.out.println("||  1  ||   Tìm theo Tên                  ||");
         System.out.println("||  2  ||   Tìm theo Năm sinh             ||");
         System.out.println("||  3  ||   Tìm theo Giới tính            ||");
         System.out.println("============================================");
         System.out.print("Mời chọn chức năng: ");
-        int cp = new Scanner(System.in).nextInt();
+        int cp = CheckError.ChuoiThanhSo();
         switch (cp) {
             case 1:
                 timTheoTen();
@@ -277,10 +278,15 @@ public class DanhSachDocGia implements DanhSach {
         System.out.print("Nhập giới tính: ");
         do {
             gioiTinh = new Scanner(System.in).nextLine();
-        } while (gioiTinh.length() == 0);
+            if(!gioiTinh.equalsIgnoreCase("nam")
+                &&!gioiTinh.equalsIgnoreCase("nu"))
+            System.err.println("Không hợp lệ! Nhập lại...");
+        } while (gioiTinh.length() == 0
+                ||(!gioiTinh.equalsIgnoreCase("nam")
+                &&!gioiTinh.equalsIgnoreCase("nu")));
         System.out.print("Nhập năm sinh: ");
         do {
-            namSinh = new Scanner(System.in).nextInt();
+            namSinh = CheckError.ChuoiThanhSo();
             if (namSinh > 2015) {
                 System.out.println("Tuổi quá nhỏ! Nhập lại!");
             }
@@ -371,7 +377,7 @@ public class DanhSachDocGia implements DanhSach {
 
     private void timTheoNamSinh() {
         System.out.print("Nhập năm sinh: ");
-        int namSinh = new Scanner(System.in).nextInt();
+        int namSinh = CheckError.ChuoiThanhSo();
         sapXep();
         System.out.println("==================================================================================================");
         System.out.printf("%-10s %-25s %-17s %-10s %-20s %-15s\n",

@@ -12,6 +12,7 @@ import static quanlythuvien.main.Main.dsnv;
 import quanlythuvien.model.NhanVien;
 import quanlythuvien.model.NhanVienChinhThuc;
 import quanlythuvien.model.NhanVienThoiVu;
+import quanlythuvien.service.CheckError;
 import quanlythuvien.service.DocGhiFile;
 
 /**
@@ -42,7 +43,7 @@ public class QuanLyNhanVien {
             System.out.println("||-----------------------------------------------||");
             System.out.println("===================================================");
             System.out.print("Mời chọn chức năng: ");
-            int cp = new Scanner(System.in).nextInt();
+            int cp = CheckError.ChuoiThanhSo();
             switch (cp) {
                 case 1:
                     themNhanVien();
@@ -101,7 +102,7 @@ public class QuanLyNhanVien {
         System.out.println("||   2   ||        Nhân viên thời vụ             ||");
         System.out.println("===================================================");
         System.out.print("Mời chọn chức năng: ");
-        int cp = new Scanner(System.in).nextInt();
+        int cp = CheckError.ChuoiThanhSo();
         switch (cp) {
             case 1:
                 NhanVien nvct = new NhanVienChinhThuc();
@@ -140,7 +141,7 @@ public class QuanLyNhanVien {
         System.out.print("Nhập mã của Nhân viên cần sửa: ");
         String maNhanVien;
         do {
-            maNhanVien = new Scanner(System.in).nextLine();
+            maNhanVien = CheckError.checkMa("NV-");
         } while (maNhanVien.length() < 0);
         if (contains(maNhanVien)) {
             for (NhanVien nv : dsnv) {
@@ -166,7 +167,7 @@ public class QuanLyNhanVien {
         System.out.println("||  3  ||   Tìm theo tên                  ||");
         System.out.println("============================================");
         System.out.print("Mời chọn chức năng: ");
-        int cp = new Scanner(System.in).nextInt();
+        int cp = CheckError.ChuoiThanhSo();
         switch (cp) {
             case 1:
                 xuatThoiVu();
@@ -251,7 +252,7 @@ public class QuanLyNhanVien {
         System.out.print("Nhập mã Nhân viên muốn xoá: ");
         String maNhanVien;
         do {
-            maNhanVien = new Scanner(System.in).nextLine();
+            maNhanVien = CheckError.checkMa("NV-");
         } while (maNhanVien.length() < 0);
         if (contains(maNhanVien)) {
             for (NhanVien nv : dsnv) {
@@ -272,7 +273,7 @@ public class QuanLyNhanVien {
         System.out.print("Nhập mã Nhân viên để tính lương: ");
         String maNhanVien;
         do {
-            maNhanVien = new Scanner(System.in).nextLine();
+            maNhanVien = CheckError.checkMa("NV-");
         } while (maNhanVien.length() < 0);
         if (contains(maNhanVien)) {
             for (NhanVien nv : dsnv) {

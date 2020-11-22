@@ -6,7 +6,7 @@
 package quanlythuvien.model;
 
 import java.text.DecimalFormat;
-import java.util.Scanner;
+import quanlythuvien.service.CheckError;
 
 /**
  *
@@ -25,7 +25,7 @@ public class NhanVienThoiVu extends NhanVien {
         System.out.print("Nhập số giờ làm: ");
         int soGioLam;
         do {
-            soGioLam = new Scanner(System.in).nextInt();
+            soGioLam = CheckError.ChuoiThanhSo();
             if (soGioLam <= 0) {
                 System.err.println("Nhập lại!");
             }

@@ -8,6 +8,7 @@ package quanlythuvien.collection;
 import java.util.Scanner;
 import quanlythuvien.main.Main;
 import quanlythuvien.model.Sach;
+import quanlythuvien.service.CheckError;
 
 /**
  *
@@ -72,7 +73,7 @@ public class DanhSachSach implements DanhSach {
         System.out.println("\t   SỬA THÔNG TIN SÁCH");
         xuat();
         System.out.print("Nhập mã Sách cần sửa: ");
-        String maSach = new Scanner(System.in).nextLine();
+        String maSach = CheckError.checkMa("MS-");
         int index = contains(maSach);
         if (index > -1) {
             listSach[index].nhap(maSach);
@@ -89,7 +90,7 @@ public class DanhSachSach implements DanhSach {
         System.out.println("\t   XOÁ THÔNG TIN SÁCH");
         xuat();
         System.out.print("Nhập mã Sách cần xoá: ");
-        String maSach = new Scanner(System.in).nextLine();
+        String maSach = CheckError.checkMa("MS-");
         if (contains(maSach) > -1) {
             int pos = contains(maSach);
             for (int i = pos; i <= length - 2; i++) {
@@ -133,7 +134,7 @@ public class DanhSachSach implements DanhSach {
         System.out.println("||  3  ||   Tìm theo Danh mục             ||");
         System.out.println("============================================");
         System.out.print("Mời chọn chức năng: ");
-        int cp = new Scanner(System.in).nextInt();
+        int cp = CheckError.ChuoiThanhSo();
         switch (cp) {
             case 1:
                 timTheoTen();

@@ -6,7 +6,7 @@
 package quanlythuvien.model;
 
 import java.text.DecimalFormat;
-import java.util.Scanner;
+import quanlythuvien.service.CheckError;
 
 /**
  *
@@ -25,7 +25,7 @@ public class NhanVienChinhThuc extends NhanVien {
         System.out.print("Nhập số ngày công: ");
         int soNgayCong;
         do {
-            soNgayCong = new Scanner(System.in).nextInt();
+            soNgayCong = CheckError.ChuoiThanhSo();
             if (soNgayCong <= 0) {
                 System.err.println("Nhập lại!");
             }

@@ -8,6 +8,7 @@ package quanlythuvien.model;
 import java.io.Serializable;
 import java.util.Scanner;
 import static quanlythuvien.main.Main.*;
+import quanlythuvien.service.CheckError;
 import quanlythuvien.service.ChuanHoaChuoi;
 
 /**
@@ -117,7 +118,7 @@ public class Sach implements ThuVien, Serializable {
                 + dss.getListSach()[n].getMaSach() + " | " + dss.getListSach()[n].getTenSach());
         System.out.print("Nhập mã sách (MS-[stt]): ");
         do {
-            maSach = new Scanner(System.in).nextLine();
+            maSach = CheckError.checkMa("MS-");
             if (dss.contains(maSach) != -1) {
                 System.out.println("Mã sách bị trùng!");
             }
@@ -177,7 +178,7 @@ public class Sach implements ThuVien, Serializable {
         System.out.print("Nhập số lượng sách: ");
         int soLuong;
         do {
-            soLuong = new Scanner(System.in).nextInt();
+            soLuong = CheckError.ChuoiThanhSo();
             if (soLuong < 0) {
                 System.out.println("Không hợp lệ! Nhập lại!");
             }

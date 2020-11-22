@@ -7,6 +7,7 @@ package quanlythuvien.collection;
 
 import java.util.Scanner;
 import quanlythuvien.model.NhaXuatBan;
+import quanlythuvien.service.CheckError;
 
 /**
  *
@@ -74,7 +75,7 @@ public class DanhSachNhaXuatBan implements DanhSach {
         System.out.println("\t   SỬA THÔNG TIN NXB");
         xuat();
         System.out.print("Nhập mã NXB cần sửa: ");
-        String maNXB = new Scanner(System.in).nextLine();
+        String maNXB = CheckError.checkMa("NXB-");
         int index = 0;
         while (listNXB[index] != null) {
             if (listNXB[index].getMaNXB().equalsIgnoreCase(maNXB)) {
@@ -98,7 +99,7 @@ public class DanhSachNhaXuatBan implements DanhSach {
         System.out.println("\tXOÁ THÔNG TIN NXB");
         xuat();
         System.out.print("Nhập mã NXB muốn xoá: ");
-        String maNXB = new Scanner(System.in).nextLine();
+        String maNXB = CheckError.checkMa("NXB-");
 
         if (contains(maNXB) > -1) {
             int pos = contains(maNXB);
@@ -146,7 +147,7 @@ public class DanhSachNhaXuatBan implements DanhSach {
         System.out.println("============================================");
         System.out.println("\tTÌM THÔNG TIN NXB");
         System.out.print("Nhập mã NXB cần tìm: ");
-        String maNXB = new Scanner(System.in).nextLine();
+        String maNXB = CheckError.checkMa("NXB-");
         int pos = contains(maNXB);
         if (pos == -1) {
             System.out.println("Không tìm thấy!");

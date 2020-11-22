@@ -7,6 +7,7 @@ package quanlythuvien.collection;
 
 import java.util.Scanner;
 import quanlythuvien.model.DanhMuc;
+import quanlythuvien.service.CheckError;
 
 /**
  *
@@ -69,7 +70,7 @@ public class DanhSachDanhMuc implements DanhSach {
         System.out.println("\t   SỬA THÔNG TIN DANH MỤC");
         xuat();
         System.out.print("Nhập mã Danh mục cần sửa: ");
-        String maDanhMuc = new Scanner(System.in).nextLine();
+        String maDanhMuc = CheckError.checkMa("DM-");
         int index = 0;
         while (listDanhMuc[index] != null) {
             if (listDanhMuc[index].getMaDanhMuc().equalsIgnoreCase(maDanhMuc)) {
@@ -93,7 +94,7 @@ public class DanhSachDanhMuc implements DanhSach {
         System.out.println("\tXOÁ THÔNG TIN DANH MỤC");
         xuat();
         System.out.print("Nhập mã Danh mục muốn xoá: ");
-        String maDanhMuc = new Scanner(System.in).nextLine();
+        String maDanhMuc = CheckError.checkMa("DM-");
 
         if (contains(maDanhMuc) > -1) {
             int pos = contains(maDanhMuc);
@@ -138,7 +139,7 @@ public class DanhSachDanhMuc implements DanhSach {
         System.out.println("============================================");
         System.out.println("\tTÌM THÔNG TIN DANH MỤC");
         System.out.print("Nhập mã Danh mục cần tìm: ");
-        String maDanhMuc = new Scanner(System.in).nextLine();
+        String maDanhMuc = CheckError.checkMa("DM-");
         int pos = contains(maDanhMuc);
         if (pos == -1) {
             System.out.println("Không tìm thấy!");

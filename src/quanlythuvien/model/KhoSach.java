@@ -8,6 +8,7 @@ package quanlythuvien.model;
 import java.io.Serializable;
 import java.util.Scanner;
 import quanlythuvien.main.Main;
+import quanlythuvien.service.CheckError;
 
 /**
  *
@@ -46,7 +47,7 @@ public class KhoSach implements ThuVien, Serializable {
         System.out.println("Nhập mã sách: ");
         String maSach;
         do {
-            maSach = new Scanner(System.in).nextLine();
+            maSach = CheckError.checkMa("MS-");
             if (Main.dss.contains(maSach) == -1) {
                 System.out.println("Mã không tồn tại! Enter để tiếp tục...");
                 new Scanner(System.in).nextLine();
@@ -55,7 +56,7 @@ public class KhoSach implements ThuVien, Serializable {
         System.out.print("Nhập số lượng sách trong kho: ");
         int soLuong;
         do {
-            soLuong = new Scanner(System.in).nextInt();
+            soLuong = CheckError.ChuoiThanhSo();
             if (soLuong < 0) {
                 System.out.println("Không hợp lệ! Nhập lại!");
             }

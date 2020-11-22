@@ -7,6 +7,7 @@ package quanlythuvien.collection;
 
 import java.util.Scanner;
 import quanlythuvien.model.TacGia;
+import quanlythuvien.service.CheckError;
 
 /**
  *
@@ -67,7 +68,7 @@ public class DanhSachTacGia implements DanhSach {
         System.out.println("\t   SỬA THÔNG TIN TÁC GIẢ");
         xuat();
         System.out.print("Nhập mã Tác giả cần sửa: ");
-        String maTacGia = new Scanner(System.in).nextLine();
+        String maTacGia = CheckError.checkMa("TG-");
         int index = contains(maTacGia);
         if (index > -1) {
             listTacGia[index].nhap(maTacGia);
@@ -84,7 +85,7 @@ public class DanhSachTacGia implements DanhSach {
         System.out.println("\t   XOÁ THÔNG TIN TÁC GIẢ");
         xuat();
         System.out.print("Nhập mã Tác giả cần xoá: ");
-        String maTacGia = new Scanner(System.in).nextLine();
+        String maTacGia = CheckError.checkMa("NXB-");
         if (contains(maTacGia) > -1) {
             int pos = contains(maTacGia);
             for (int i = pos; i <= length - 2; i++) {

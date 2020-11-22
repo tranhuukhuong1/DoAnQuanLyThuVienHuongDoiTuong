@@ -30,6 +30,7 @@ import quanlythuvien.model.NhanVien;
 import quanlythuvien.model.Sach;
 import quanlythuvien.model.TacGia;
 import quanlythuvien.model.TaiKhoan;
+import quanlythuvien.service.CheckError;
 import static quanlythuvien.service.DocGhiFile.*;
 
 /**
@@ -73,7 +74,7 @@ public class Main {
         System.out.println("||   6   ||        Thoát chương trình            ||");
         System.out.println("===================================================");
         System.out.print("Mời chọn chức năng: ");
-        int cp = new Scanner(System.in).nextInt();
+        int cp = CheckError.ChuoiThanhSo();
         switch (cp) {
             case 1:
                 quanLySach();
@@ -115,7 +116,7 @@ public class Main {
         System.out.println("||   4   ||        Thoát chương trình            ||");
         System.out.println("===================================================");
         System.out.print("Mời chọn chức năng: ");
-        int cp = new Scanner(System.in).nextInt();
+        int cp = CheckError.ChuoiThanhSo();
         switch (cp) {
             case 1:
                 quanLyDocGia();
@@ -157,7 +158,7 @@ public class Main {
             System.out.println("||   6   ||        Thoát chức năng               ||");
             System.out.println("===================================================");
             System.out.print("Mời chọn chức năng: ");
-            int cp = new Scanner(System.in).nextInt();
+            int cp = CheckError.ChuoiThanhSo();
             switch (cp) {
                 case 1:
                     Sach s = new Sach();
@@ -209,7 +210,7 @@ public class Main {
             System.out.println("||   6   ||        Thoát chức năng               ||");
             System.out.println("===================================================");
             System.out.print("Mời chọn chức năng: ");
-            int cp = new Scanner(System.in).nextInt();
+            int cp = CheckError.ChuoiThanhSo();
             switch (cp) {
                 case 1:
                     dsdg.xuat();

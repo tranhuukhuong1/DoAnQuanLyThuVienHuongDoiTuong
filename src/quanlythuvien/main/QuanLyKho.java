@@ -7,6 +7,7 @@ package quanlythuvien.main;
 
 import java.util.Scanner;
 import quanlythuvien.model.KhoSach;
+import quanlythuvien.service.CheckError;
 
 /**
  *
@@ -27,7 +28,7 @@ public class QuanLyKho {
             System.out.println("||   3   ||        Thoát chức năng               ||");
             System.out.println("===================================================");
             System.out.print("Mời chọn cú pháp: ");
-            int cp = new Scanner(System.in).nextInt();
+            int cp = CheckError.ChuoiThanhSo();
             switch (cp) {
                 case 1:
                     xuatThongTin();
@@ -54,13 +55,13 @@ public class QuanLyKho {
         System.out.print("Nhập mã Sách để sửa: ");
         String maSach;
         do {
-            maSach = new Scanner(System.in).nextLine();
+            maSach = CheckError.checkMa("MS-");
         } while (maSach.length() == 0);
         if (containsMa(maSach)) {
             System.out.print("Nhập số lượng sách: ");
             int soLuong;
             do {
-                soLuong = new Scanner(System.in).nextInt();
+                soLuong = CheckError.ChuoiThanhSo();
             } while (soLuong < 0);
             for (KhoSach ks : Main.dsk) {
                 if (ks.getMaSach().equalsIgnoreCase(maSach)) {
@@ -68,8 +69,7 @@ public class QuanLyKho {
                     break;
                 }
             }
-        }
-        else {
+        } else {
             System.out.println("Mã không tồn tại!");
         }
     }

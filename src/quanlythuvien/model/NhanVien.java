@@ -2,6 +2,7 @@ package quanlythuvien.model;
 
 import java.util.Scanner;
 import quanlythuvien.main.QuanLyNhanVien;
+import quanlythuvien.service.CheckError;
 
 public abstract class NhanVien extends Person{
 
@@ -32,7 +33,7 @@ public abstract class NhanVien extends Person{
         System.out.print("Nhập mã Nhân viên: ");
         String maNhanVien;
         do {
-            maNhanVien = new Scanner(System.in).nextLine();
+            maNhanVien = CheckError.checkMa("NV-");
             if (QuanLyNhanVien.contains(maNhanVien)) {
                 System.out.println("Mã đã tồn tại! Nhập lại...");
             }

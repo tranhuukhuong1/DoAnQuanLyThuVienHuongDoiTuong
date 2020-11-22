@@ -8,6 +8,7 @@ package quanlythuvien.model;
 import java.io.Serializable;
 import java.util.Scanner;
 import quanlythuvien.main.Main;
+import quanlythuvien.service.CheckError;
 import static quanlythuvien.service.ChuanHoaChuoi.chuanHoa;
 
 /**
@@ -61,7 +62,7 @@ public class NhaXuatBan implements ThuVien, Serializable {
         System.out.println("\tThêm thông tin NXB:");
         System.out.print("Nhập mã NXB: ");
         do {
-            maNXB = new Scanner(System.in).nextLine();
+            maNXB = CheckError.checkMa("NXB-");
             if (Main.dsnxb.contains(maNXB) != -1) {
                 System.out.println("Đã tồn tại NXB!");
             }

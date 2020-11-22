@@ -7,6 +7,7 @@ package quanlythuvien.model;
  */
 import java.io.Serializable;
 import java.util.Scanner;
+import quanlythuvien.service.CheckError;
 import quanlythuvien.service.ChuanHoaChuoi;
 
 /**
@@ -69,7 +70,7 @@ public class Person implements ThuVien, Serializable {
         System.out.print("Nhập giới tính: ");
         int gt = 0;
         do {
-            gt = new Scanner(System.in).nextInt();
+            gt = CheckError.ChuoiThanhSo();
             if (gt != 1 && gt != 2 && gt != 3) {
                 System.out.println("Không hợp lệ! Nhập lại!");
             }
@@ -88,11 +89,14 @@ public class Person implements ThuVien, Serializable {
         }
         System.out.print("Nhập năm sinh: ");
         do {
-            namSinh = new Scanner(System.in).nextInt();
+            namSinh = CheckError.ChuoiThanhSo();
             if (namSinh > 2015) {
                 System.out.println("Tuổi quá nhỏ! Nhập lại!");
             }
-        } while (namSinh > 2015);
+            if (namSinh < 1900) {
+                System.out.println("Tuổi quá lớn! Nhập lại!");
+            }
+        } while (namSinh > 2015 || namSinh < 1900);
         this.hoTen = ChuanHoaChuoi.chuanHoa(hoTen);
         this.gioiTinh = ChuanHoaChuoi.chuanHoa(gioiTinh);
         this.namSinh = namSinh;

@@ -12,6 +12,7 @@ import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import quanlythuvien.main.Main;
+import quanlythuvien.service.CheckError;
 import quanlythuvien.service.ChuanHoaChuoi;
 
 /**
@@ -87,7 +88,7 @@ public abstract class DocGia extends Person {
         System.out.print("Nhập hạn thẻ (số ngày): ");
         int hanThe;
         do {
-            hanThe = new Scanner(System.in).nextInt();
+            hanThe = CheckError.ChuoiThanhSo();
             if (hanThe <= 0) {
                 System.out.println("Nhập số ngày lớn hơn 0!");
             }
@@ -103,7 +104,7 @@ public abstract class DocGia extends Person {
         System.out.print("Nhập hạn thẻ (số ngày): ");
         int hanThe;
         do {
-            hanThe = new Scanner(System.in).nextInt();
+            hanThe = CheckError.ChuoiThanhSo();
             if (hanThe <= 0) {
                 System.out.println("Nhập số ngày lớn hơn 0!");
             }

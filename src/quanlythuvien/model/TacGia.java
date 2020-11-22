@@ -7,6 +7,7 @@ package quanlythuvien.model;
 
 import java.util.Scanner;
 import quanlythuvien.main.Main;
+import quanlythuvien.service.CheckError;
 
 /**
  *
@@ -42,7 +43,7 @@ public class TacGia extends Person {
         String maTG;
         System.out.print("Nhập mã Tác giả: ");
         do {
-            maTG = new Scanner(System.in).nextLine();
+            maTG = CheckError.checkMa("TG-");
             if (Main.dstg.contains(maTG) != -1) {
                 System.out.println("Mã bị trùng! Nhập lại:");
             }

@@ -8,6 +8,7 @@ package quanlythuvien.model;
 import java.io.Serializable;
 import java.util.Scanner;
 import quanlythuvien.main.Main;
+import quanlythuvien.service.CheckError;
 
 /**
  *
@@ -48,7 +49,7 @@ public class MuonTra implements ThuVien, Serializable {
         System.out.print("Nhập mã thẻ mượn (MT-(stt): ");
         String maMuonTra;
         do {
-            maMuonTra = new Scanner(System.in).nextLine();
+            maMuonTra = CheckError.checkMa("MT-");
             if (isContains(maMuonTra)) {
                 System.out.println("Mã đã tồn tại! Nhập lại!");
             }
