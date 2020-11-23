@@ -223,7 +223,7 @@ public class Sach implements ThuVien, Serializable {
         dsnxb.xuat();
         System.out.print("Nhập mã NXB: ");
         do {
-            maNXB = new Scanner(System.in).nextLine();
+            maNXB = CheckError.checkMa("NXB-");
         } while (maNXB.length() == 0);
         if (dsnxb.contains(maNXB.toUpperCase()) == -1) {
             System.out.println("======================================");
