@@ -101,9 +101,9 @@ public class Sach implements ThuVien, Serializable {
         System.out.println("\tThêm thông tin sách:");
         dsdm.xuat();
         String maDanhMuc, maSach, maTacGia, maNXB, maNgonNgu;
-        System.out.print("Nhập mã Danh mục của sách: ");
+        System.out.print("Nhập mã Danh mục của sách (DM-[stt]): ");
         do {
-            maDanhMuc = new Scanner(System.in).nextLine();
+            maDanhMuc = CheckError.checkMa("DM-");
         } while (maDanhMuc.length() == 0);
         if (dsdm.contains(maDanhMuc) == -1) {
             System.out.println("======================================");
@@ -131,7 +131,7 @@ public class Sach implements ThuVien, Serializable {
         dstg.xuat();
         System.out.print("Nhập mã tác giả: ");
         do {
-            maTacGia = new Scanner(System.in).nextLine();
+            maTacGia = CheckError.checkMa("TG-");
         } while (maTacGia.length() == 0);
         if (dstg.contains(maTacGia) == -1) {
             System.out.println("======================================");
@@ -143,7 +143,7 @@ public class Sach implements ThuVien, Serializable {
         dsnxb.xuat();
         System.out.print("Nhập mã NXB: ");
         do {
-            maNXB = new Scanner(System.in).nextLine();
+            maNXB = CheckError.checkMa("NXB-");
         } while (maNXB.length() == 0);
         if (dsnxb.contains(maNXB.toUpperCase()) == -1) {
             System.out.println("======================================");
@@ -155,7 +155,7 @@ public class Sach implements ThuVien, Serializable {
         System.out.println("=======Tiếp tục nhập thông tin sách=======");
         System.out.print("Nhập năm xuất bản: ");
         do {
-            namXuatBan = Integer.valueOf(new Scanner(System.in).nextLine());
+            namXuatBan = CheckError.ChuoiThanhSo();
         } while (namXuatBan > 2020);
         dsnn.xuat();
         System.out.print("Nhập mã ngôn ngữ: ");
@@ -193,7 +193,7 @@ public class Sach implements ThuVien, Serializable {
         String maDanhMuc, maTacGia, maNXB, maNgonNgu;
         System.out.print("Nhập mã Danh mục của sách: ");
         do {
-            maDanhMuc = new Scanner(System.in).nextLine();
+            maDanhMuc = CheckError.checkMa("DM-");
         } while (maDanhMuc.length() == 0);
         if (dsdm.contains(maDanhMuc) == -1) {
             System.out.println("======================================");
@@ -211,7 +211,7 @@ public class Sach implements ThuVien, Serializable {
         dstg.xuat();
         System.out.print("Nhập mã tác giả: ");
         do {
-            maTacGia = new Scanner(System.in).nextLine();
+            maTacGia = CheckError.checkMa("TG-");
         } while (maTacGia.length() == 0);
         if (dstg.contains(maTacGia) == -1) {
             System.out.println("======================================");
@@ -235,8 +235,8 @@ public class Sach implements ThuVien, Serializable {
         System.out.println("=======Tiếp tục nhập thông tin sách=======");
         System.out.print("Nhập năm xuất bản: ");
         do {
-            namXuatBan = Integer.valueOf(new Scanner(System.in).nextLine());
-        } while (namXuatBan > 2020);
+            namXuatBan = CheckError.ChuoiThanhSo();
+        } while (namXuatBan > 2020 || namXuatBan < 0);
         dsnn.xuat();
         System.out.print("Nhập mã ngôn ngữ: ");
         do {

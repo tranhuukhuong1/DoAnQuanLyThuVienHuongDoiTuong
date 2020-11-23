@@ -6,7 +6,6 @@
 package quanlythuvien.model;
 
 import java.io.Serializable;
-import java.util.Scanner;
 import quanlythuvien.main.Main;
 import quanlythuvien.service.CheckError;
 

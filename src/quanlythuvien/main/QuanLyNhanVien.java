@@ -40,7 +40,6 @@ public class QuanLyNhanVien {
             System.out.println("||   6   ||        Tính lương Nhân viên          ||");
             System.out.println("||-----------------------------------------------||");
             System.out.println("||   7   ||        Thoát chức năng               ||");
-            System.out.println("||-----------------------------------------------||");
             System.out.println("===================================================");
             System.out.print("Mời chọn chức năng: ");
             int cp = CheckError.ChuoiThanhSo();

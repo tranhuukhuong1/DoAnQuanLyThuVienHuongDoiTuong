@@ -185,7 +185,8 @@ public class Main {
                     flag = false;
                     break;
                 default:
-                    System.err.println("Sai cú pháp!");
+                    System.err.println("Sai cú pháp! Enter để tiếp tục...");
+                    new Scanner(System.in).nextLine();
                     break;
             }
         }

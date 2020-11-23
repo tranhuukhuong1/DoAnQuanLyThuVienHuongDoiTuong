@@ -69,7 +69,7 @@ public abstract class DocGia extends Person {
         System.out.println("Cú pháp nhập mã: DG-(số_thứ_tự)");
         System.out.print("Nhập mã Độc giả: ");
         do {
-            maDocGia = new Scanner(System.in).nextLine();
+            maDocGia = CheckError.checkMa("DG-");
             if (Main.dsdg.contains(maDocGia) != -1) {
                 System.err.println("Mã độc giả đã tồn tại! Nhập lại...");
             }
@@ -84,7 +84,7 @@ public abstract class DocGia extends Person {
         } catch (ParseException ex) {
             Logger.getLogger(DocGia.class.getName()).log(Level.SEVERE, null, ex);
         }
-        System.out.println("Ngày làm thẻ: " + ngayLamThe);
+        System.out.println("Ngày làm thẻ: " + sdf.format(ngayLamThe));
         System.out.print("Nhập hạn thẻ (số ngày): ");
         int hanThe;
         do {
