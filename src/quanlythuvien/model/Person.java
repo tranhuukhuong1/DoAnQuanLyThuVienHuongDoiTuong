@@ -87,9 +87,14 @@ public class Person implements ThuVien, Serializable {
                 gioiTinh = "Khác";
                 break;
         }
-        
+
         System.out.print("Nhập năm sinh: ");
-        namSinh = CheckError.ChuoiThanhSo();
+        do {
+            namSinh = CheckError.ChuoiThanhSo();
+            if (namSinh < 2015) {
+                System.out.println("Năm quá nhỏ! Nhập lại...");
+            }
+        } while (namSinh < 2015);
         
         this.hoTen = ChuanHoaChuoi.chuanHoa(hoTen);
         this.gioiTinh = ChuanHoaChuoi.chuanHoa(gioiTinh);
