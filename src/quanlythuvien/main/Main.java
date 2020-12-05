@@ -265,7 +265,9 @@ public class Main {
                 menuAdmin();
             }
         } else if (tk.getLoaiTaiKhoan() == 0) {
-            menuNhanVien();
+            while (true) {
+                menuNhanVien();
+            }
         }
     }
 
@@ -280,12 +282,11 @@ public class Main {
         return null;
     }
 
-    
     /*
         ======================================
                 IMPORT LẠI DTB KHI MẤT
         ======================================
-    */
+     */
     private static void importData() {
         /*
         *===============================

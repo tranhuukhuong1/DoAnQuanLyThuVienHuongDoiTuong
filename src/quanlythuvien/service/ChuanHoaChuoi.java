@@ -18,7 +18,7 @@ public class ChuanHoaChuoi {
         name = name.toLowerCase();
         char a[] = name.toCharArray();
         for (int i = 0; i < a.length; i++) {
-            if ((i == 0 || a[i - 1] == 32) && a[i] > 97) {
+            if ((i == 0 || a[i - 1] == 32) && a[i] >= 97) {
                 a[i] -= 32;
             }
         }

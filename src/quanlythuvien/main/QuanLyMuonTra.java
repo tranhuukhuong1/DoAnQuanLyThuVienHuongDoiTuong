@@ -101,6 +101,7 @@ public class QuanLyMuonTra {
                 KhoSach kho = getKho(ct.getSach().getMaSach());
                 kho.setSoLuong(kho.getSoLuong() + 1);
                 System.out.println("Enter để tiếp tục...");
+                new Scanner(System.in).nextLine();
                 break;
             }
         }

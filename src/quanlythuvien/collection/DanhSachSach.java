@@ -193,10 +193,10 @@ public class DanhSachSach implements DanhSach {
     private void timTheoTen() {
         System.out.println("Nhập từ khoá: ");
         String key = new Scanner(System.in).nextLine();
-        System.out.println("=============================================================================================");
-        System.out.printf("%-10s %-10s %-20s %-15s %-10s %-7s %-10s\n",
-                "Danh mục", "Mã Sách", "Tên sách", "Tác giả", "NXB", "Năm XB", "Ngôn ngữ");
-        System.out.println("---------------------------------------------------------------------------------------------");
+        System.out.println("==================================================================================================");
+        System.out.printf("%-10s %-10s %-30s %-15s %-10s %-7s %-10s\n",
+                "Mã Sách", "Danh mục", "Tên sách", "Tác giả", "NXB", "Năm XB", "Ngôn ngữ");
+        System.out.println("--------------------------------------------------------------------------------------------------");
         for (int i = 0; i < length; i++) {
             if (listSach[i].getTenSach().toLowerCase().contains(key.toLowerCase())) {
                 listSach[i].xuat();
@@ -216,10 +216,10 @@ public class DanhSachSach implements DanhSach {
                 System.out.println("Mã không tồn tại! Nhập lại:");
             }
         } while (key.length() == 0 || Main.dstg.contains(key) == -1);
-        System.out.println("=============================================================================================");
-        System.out.printf("%-10s %-10s %-20s %-15s %-10s %-7s %-10s\n",
-                "Danh mục", "Mã Sách", "Tên sách", "Tác giả", "NXB", "Năm XB", "Ngôn ngữ");
-        System.out.println("---------------------------------------------------------------------------------------------");
+        System.out.println("==================================================================================================");
+        System.out.printf("%-10s %-10s %-30s %-15s %-10s %-7s %-10s\n",
+                "Mã Sách", "Danh mục", "Tên sách", "Tác giả", "NXB", "Năm XB", "Ngôn ngữ");
+        System.out.println("--------------------------------------------------------------------------------------------------");
         for (int i = 0; i < length; i++) {
             if (listSach[i].getMaTacGia().equalsIgnoreCase(key)) {
                 listSach[i].xuat();
@@ -239,10 +239,10 @@ public class DanhSachSach implements DanhSach {
                 System.out.println("Mã không tồn tại! Nhập lại:");
             }
         } while (key.length() == 0 || Main.dsdm.contains(key) == -1);
-        System.out.println("=============================================================================================");
-        System.out.printf("%-10s %-10s %-20s %-15s %-10s %-7s %-10s\n",
-                "Danh mục", "Mã Sách", "Tên sách", "Tác giả", "NXB", "Năm XB", "Ngôn ngữ");
-        System.out.println("---------------------------------------------------------------------------------------------");
+        System.out.println("==================================================================================================");
+        System.out.printf("%-10s %-10s %-30s %-15s %-10s %-7s %-10s\n",
+                "Mã Sách", "Danh mục", "Tên sách", "Tác giả", "NXB", "Năm XB", "Ngôn ngữ");
+        System.out.println("--------------------------------------------------------------------------------------------------");
         for (int i = 0; i < length; i++) {
             if (listSach[i].getMaDanhMuc().equalsIgnoreCase(key)) {
                 listSach[i].xuat();

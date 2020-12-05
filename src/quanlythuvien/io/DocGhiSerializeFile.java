@@ -10,14 +10,6 @@ import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
-/**
- *
-<<<<<<< HEAD
- * @author Admin
-=======
- * @author huukhuong
->>>>>>> origin/main
- */
 public class DocGhiSerializeFile {
 
     // lưu file
@@ -45,7 +37,6 @@ public class DocGhiSerializeFile {
             ois.close();
             fin.close();
             return data;
-
         } catch (Exception e) {
             e.printStackTrace();
         }

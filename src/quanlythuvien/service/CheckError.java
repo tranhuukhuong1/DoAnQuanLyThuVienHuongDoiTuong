@@ -12,7 +12,7 @@ import java.util.Scanner;
  * @author Admin
  */
 public class CheckError {
-
+    
     public static int ChuoiThanhSo() {
         boolean flag = false;
         String inp;
